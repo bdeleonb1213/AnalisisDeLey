@@ -12,7 +12,6 @@ function Header()
 {
     // Logo
 
-    $this->Image('file:///C:/xampp/htdocs/Reportes/imagenes/umg.png',160,10,35);
     // Arial bold 15
     $this->SetFont('Arial','B',15);
     // Movernos a la derecha
@@ -42,10 +41,12 @@ function Footer()
 }
 }
 
-
+        //id de la ley que viene de la otra pagina
+    
+    $id = $_GET['id'];
 
 require 'cn.php';   
-$consulta= "SELECT NombreLey, Articulo, cumplimiento_articulo.titulo, estado, evidencia FROM cumplimiento_articulo INNER JOIN articulo ON cumplimiento_articulo.id_articulo = articulo.IdArticulo INNER JOIN ley on cumplimiento_articulo.id_ley = ley.IdLey WHERE IdLey = 6";
+$consulta= "SELECT NombreLey, Articulo, cumplimiento_articulo.titulo, estado, evidencia FROM cumplimiento_articulo INNER JOIN articulo ON cumplimiento_articulo.id_articulo = articulo.IdArticulo INNER JOIN ley on cumplimiento_articulo.id_ley = ley.IdLey WHERE IdLey = $id";
 
 
 
